@@ -1,5 +1,6 @@
 # Foodie
-Foodie è un servizio per la gestione delle merende!
+Foodie è un servizio per la gestione delle merende!<br>
+La roadmap è disponibile [qui](https://trello.com/b/NAWL0RyX/foodie)
 
 ![Project](https://img.shields.io/badge/Project-School-brightgreen)
 ![License](https://img.shields.io/github/license/Pippopad/Foodie)
