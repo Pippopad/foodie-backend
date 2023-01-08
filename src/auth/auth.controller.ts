@@ -1,6 +1,15 @@
-import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  HttpCode,
+  HttpStatus,
+  Post,
+  UseGuards,
+} from '@nestjs/common';
+import { User } from 'src/utils/get-user.decorator';
 import { AuthService } from './auth.service';
-import { LoginDto } from './dto';
+import { InitializeAccountDto, LoginDto } from './dto';
+import { AccessTokenInitGuard } from './guards';
 
 @Controller('auth')
 export class AuthController {
@@ -16,5 +25,15 @@ export class AuthController {
   @HttpCode(HttpStatus.OK)
   adminLogin(@Body() loginDto: LoginDto) {
     return this.authService.adminLogin(loginDto);
+  }
+
+  @Post('initialize')
+  @HttpCode(HttpStatus.OK)
+  @UseGuards(AccessTokenInitGuard)
+  initializeAccount(
+    @User('username') username,
+    @Body() initializeAccountDto: InitializeAccountDto,
+  ) {
+    return this.authService.initializeAccount(username, initializeAccountDto);
   }
 }

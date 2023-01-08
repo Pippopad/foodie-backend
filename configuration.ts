@@ -15,5 +15,6 @@ export default () => ({
       pin: process.env.CV_PIN,
       target: process.env.CV_TARGET,
     },
+    jwt_secret: process.env.JWT_SECRET,
   },
 });
