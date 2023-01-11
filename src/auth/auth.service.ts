@@ -102,7 +102,6 @@ export class AuthService {
 
       if (username && password) this.validateUserCredentials(null, null);
 
-      console.log(data.data);
       return data.data.auth.loggedIn;
     } catch (error) {
       throw new InternalServerErrorException(
