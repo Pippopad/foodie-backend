@@ -6,6 +6,13 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "migrate:up": "yarn knex migrate:up",
+    "migrate:down": "yarn knex migrate:down",
+    "migrate:latest": "yarn knex migrate:latest",
+    "db:start": "docker-compose up db -d",
+    "db:stop": "docker-compose stop db",
+    "db:restart": "docker-compose stop db && docker-compose start db -d",
+    "db:destroy": "docker-compose rm db -s -f",
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
